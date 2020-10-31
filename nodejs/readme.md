@@ -1,1 +1,1 @@
-"nano nodejsBackend.js" to start server
+"node nodejsBackend.js" to start server
