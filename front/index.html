@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" id="sumForm">
+    <label>First number:</label>
+    <input type="number" name="num1" placeholder="Enter first number" id="num1">
+    <br>
+    <br>
+    <label>First number:</label>
+    <input type="number" name="num2" placeholder="Enter second number" id="num2">
+    <br>
+    <br>
+    <input type="submit" value="submit for node" onclick="submitFormSum('http://localhost:3214/go/sha256/node/sha256')">
+    <input type="submit" value="submit for Go" onclick="submitFormSum('http://localhost:8080/go/sha256')">
+    <br>
+</form>
+<form method="get" id="fileForm">
+     <br>
+    <br>
+    <br>
+   <label>Line number:</label>
+      <br>
+  <br>
+    <input type="number" name="line" placeholder="Enter line number" id="line">
+    <br>
+    <br>
+    <input form="fileForm" type="submit" value="submit for node" onclick="submitFormFile('http://localhost:3214/node/write')">
+    <input form="fileForm" type="submit" value="submit for Go" onclick="submitFormFile('http://localhost:8080/go/write')">
+    <br>
+</form>
+</body>
+</html>
+
+
+<script>
+    function submitFormFile(action) {
+        document.getElementById('fileForm').action = action;
+        document.getElementById('fileForm').submit();
+    }
+
+     function submitFormSum(action) {
+        document.getElementById('sumForm').action = action;
+        document.getElementById('sumForm').submit();
+    }
+</script>
+
+
