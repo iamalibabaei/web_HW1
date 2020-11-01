@@ -25,7 +25,7 @@ app.get('/write/', (req, res) => {
 });
 
 app.post('/sha-256', (req, res) => {
-  var myInt = req.body.n1 + req.body.n2
+  var myInt = req.body.num1 + req.body.num2
   var myHash = crypto.createHash('sha256').update(myInt.toString()).digest('base64');
   var myJson = JSON.stringify({myHash});
   //console.log(myJson)
