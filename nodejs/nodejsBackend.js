@@ -18,16 +18,20 @@ app.get('/write/', (req, res) => {
     var txt = q.line;
     fs.readFile('file.txt', function(err, fileData) {
       if (err) throw err;
-      var line = fileData.toString().split('\n')[txt - 1]
-      //console.log(line)
-      res.send(line);
+      if (!(txt > 0 && txt < 101)) {
+        res.send('Invalid input');
+      } else{
+        var line = fileData.toString().split('\n')[txt - 1];
+        //console.log(line);
+        res.send(line);
+      }
     });
 });
 
 app.post('/sha-256', (req, res) => {
   var myInt = req.body.num1 + req.body.num2
   var myHash = crypto.createHash('sha256').update(myInt.toString()).digest('base64');
-  var myJson = JSON.stringify({myHash});
+  var myJson = JSON.stringify(myHash);
   //console.log(myJson)
   res.send(myJson)
 })
