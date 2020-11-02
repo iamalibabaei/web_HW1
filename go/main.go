@@ -8,7 +8,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"reflect"
 	"strconv"
 )
 
@@ -18,7 +17,6 @@ type responseResult struct {
 	Message string
 }
 
-
 func main() {
 	http.HandleFunc("/go/sha256", SHAHandler)
 	http.HandleFunc("/go/write", FileHandler)
@@ -26,23 +24,20 @@ func main() {
 
 }
 
-
-
 func SHAHandler(writer http.ResponseWriter, request *http.Request) {
-	var data map[string]interface{}
-	json.NewDecoder(request.Body).Decode(&data)
 	if request.Method == "POST" {
-		type1 := reflect.TypeOf(data["num1"])
-		type2 := reflect.TypeOf(data["num2"])
-		if type1 != reflect.TypeOf(0.2) || type2 != reflect.TypeOf(0.2) {
+		request.ParseForm()
+		num1 := request.FormValue("num1")
+		num2 := request.Form.Get("num2")
+		num1Int, err1 := strconv.ParseInt(num1, 10, 64)
+		num2Int, err2 := strconv.ParseInt(num2, 10, 64)
+		if err1 != nil || err2 != nil {
 			request := responseResult{Data: "", Status: "error", Message: "Type Error"}
 			json.NewEncoder(writer).Encode(request)
 			return
 		}
-		var num1 = data["num1"].(float64)
-		var num2 = data["num2"].(float64)
 		json.NewEncoder(writer).Encode(request)
-		var sum = num1 + num2
+		var sum = num1Int + num2Int
 		h := sha256.New()
 		h.Write([]byte((strconv.Itoa(int(sum)))))
 		sha256 := hex.EncodeToString(h.Sum(nil))
@@ -78,11 +73,10 @@ func FileHandler(writer http.ResponseWriter, request *http.Request) {
 				}
 				index += 1
 			}
-			r := responseResult{Status:"success", Data:line, Message: "file read successfully"}
+			r := responseResult{Status: "success", Data: line, Message: "file read successfully"}
 			json.NewEncoder(writer).Encode(r)
 		}
 
 	}
 
 }
-
