@@ -1,16 +1,100 @@
-def valid_paren(input_str):
-  stack = []
-  for paren in input_str:
-    if paren == '(':
-      stack.append(paren)
-    else:
-      if not stack:
-        return False
-      else:
-        top = stack[-1]
-        if paren == ')' and top == '(':
-          stack.pop()
-  if not stack:
-    return True
-  else:
-    return False
+this is line 1 haha 
+this is line 2 haha 
+this is line 3 haha 
+this is line 4 haha 
+this is line 5 haha 
+this is line 6 haha 
+this is line 7 haha 
+this is line 8 haha 
+this is line 9 haha 
+this is line 10 haha 
+this is line 11 haha 
+this is line 12 haha 
+this is line 13 haha 
+this is line 14 haha 
+this is line 15 haha 
+this is line 16 haha 
+this is line 17 haha 
+this is line 18 haha 
+this is line 19 haha 
+this is line 20 haha 
+this is line 21 haha 
+this is line 22 haha 
+this is line 23 haha 
+this is line 24 haha 
+this is line 25 haha 
+this is line 26 haha 
+this is line 27 haha 
+this is line 28 haha 
+this is line 29 haha 
+this is line 30 haha 
+this is line 31 haha 
+this is line 32 haha 
+this is line 33 haha 
+this is line 34 haha 
+this is line 35 haha 
+this is line 36 haha 
+this is line 37 haha 
+this is line 38 haha 
+this is line 39 haha 
+this is line 40 haha 
+this is line 41 haha 
+this is line 42 haha 
+this is line 43 haha 
+this is line 44 haha 
+this is line 45 haha 
+this is line 46 haha 
+this is line 47 haha 
+this is line 48 haha 
+this is line 49 haha 
+this is line 50 haha 
+this is line 51 haha 
+this is line 52 haha 
+this is line 53 haha 
+this is line 54 haha 
+this is line 55 haha 
+this is line 56 haha 
+this is line 57 haha 
+this is line 58 haha 
+this is line 59 haha 
+this is line 60 haha 
+this is line 61 haha 
+this is line 62 haha 
+this is line 63 haha 
+this is line 64 haha 
+this is line 65 haha 
+this is line 66 haha 
+this is line 67 haha 
+this is line 68 haha 
+this is line 69 haha 
+this is line 70 haha 
+this is line 71 haha 
+this is line 72 haha 
+this is line 73 haha 
+this is line 74 haha 
+this is line 75 haha 
+this is line 76 haha 
+this is line 77 haha 
+this is line 78 haha 
+this is line 79 haha 
+this is line 80 haha 
+this is line 81 haha 
+this is line 82 haha 
+this is line 83 haha 
+this is line 84 haha 
+this is line 85 haha 
+this is line 86 haha 
+this is line 87 haha 
+this is line 88 haha 
+this is line 89 haha 
+this is line 90 haha 
+this is line 91 haha 
+this is line 92 haha 
+this is line 93 haha 
+this is line 94 haha 
+this is line 95 haha 
+this is line 96 haha 
+this is line 97 haha 
+this is line 98 haha 
+this is line 99 haha 
+this is line 100 haha 
